@@ -14,7 +14,7 @@
 
         <label class="control-label">Company Name:</label>
         <div class="col-md-10">
-            <select disabled [(ngModel)]="ipoData.companyId" #companyId class="form-control" name="companyId" style="width:200px;">
+            <select [(ngModel)]="ipoData.companyId" #companyId class="form-control" name="companyId" style="width:200px;">
                 <option  *ngFor="let c of companies" [value]="c.id">{{c.companyName}}</option> 
             </select>
         </div>
