@@ -61,11 +61,10 @@
 
         <label class="control-label">Sector:</label>
         <div class="col-md-10">
-        <input type="text" #sectorId [(ngModel)]="companyData.sectorId"
-            name="sectorId"
-            class="form-control"
-            placeholder="Enter sector" 
-            />
+            <select #sectorId class="form-control" name="sectorId" style="width:200px;"
+            [(ngModel)]="companyData.sectorId"> 
+                <option  *ngFor="let s of sectors" [value]="s.id">{{s.sectorName}}</option> 
+            </select>
         </div>
 
         <label class="control-label">StockCode:</label>

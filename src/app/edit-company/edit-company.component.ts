@@ -3,6 +3,8 @@ import { CompanyData } from '../companyData';
 import { CompanyService } from '../company.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { SectorService } from '../sector.service';
+import { SectorData } from '../sectorData';
 
 @Component({
   selector: 'app-edit-company',
@@ -13,9 +15,13 @@ export class EditCompanyComponent implements OnInit {
   companyData:CompanyData = new CompanyData();
   warninfo:string="";
   isAdd:boolean = true;
-  constructor(private companyService:CompanyService, private router:Router, private $location:Location) { }
+  sectors:SectorData[] = [];
+  constructor(private companyService:CompanyService, private sectorService:SectorService,
+    private router:Router, 
+    private $location:Location) { }
 
   ngOnInit() {
+    this.getSectors();
     const path = this.$location.path();
     let id = path.substr(path.lastIndexOf("/")+1);
     if(id != "addCompany"){
@@ -28,6 +34,13 @@ export class EditCompanyComponent implements OnInit {
     this.companyService.getCompany(id).subscribe(company => {
       this.companyData = company;
       console.log(company);
+    });
+  }
+
+  getSectors(){
+    this.sectorService.getSectors()
+      .subscribe(result =>{
+      this.sectors = result;
     });
   }
 
