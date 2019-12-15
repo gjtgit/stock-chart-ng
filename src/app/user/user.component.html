@@ -1,0 +1,19 @@
+
+<nav class="navbar navbar-expand-sm bg-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" routerLink='/ipos' [routerLinkActive]="['bg-light']">IPOs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink='/compareChart'  [routerLinkActive]="['bg-light']">Compare Company</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink='/compareChart'  [routerLinkActive]="['bg-light']">Compare Sectors</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"   [routerLinkActive]="['bg-light']">Other</a>
+        </li>  
+        </ul>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,61 @@
+<h3>Log in</h3>
+<div class="text-danger">
+    <label>{{warninfo}}</label>    
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <label class="col-md-2 control-label">Username:</label>
+        <div class="col-md-10">
+        <input type="text" #username [(ngModel)]="userData.username"
+            name="username"
+            required
+            class="form-control"
+            placeholder="Enter username" 
+            />
+        </div>
+        
+        <label class="col-md-2 control-label">Password:</label>
+        <div class="col-md-10">
+        <input type="password" #password [(ngModel)]="userData.password"
+            name="url"
+            required
+            class="form-control"
+            placeholder="Enter password"
+            />
+        </div>
+        <br>
+            
+        <button class="btn btn-primary" (click)="login()">Submit</button>
+        
+    </div>
+</div>
+
+
+<!-- 
+    <input class="col-md-6" required placeholder="Enter user"
+    [(ngModel)]="userData.username" #name="ngModel"
+    type="text" name="name" (input)="error=false" /> 
+
+    <div class="text-danger" *ngIf="name.touched && name.errors != null">
+        <div *ngIf = "name.errors.required">
+            <label>Error: Required Field</label>s
+        </div>
+    </div>
+
+    <input class="" required placeholder="Enter password"
+    [(ngModel)]="userData.password" #pass="ngModel"
+    type="text" name="pass" (input)="error=false" /> 
+
+    <div class="" *ngIf="pass.touched && pass.errors != null">
+        <div *ngIf = "pass.errors.required">
+            <label>Error: Required Field</label>
+        </div>
+    </div>
+
+    <div class="text-danger" *ngIf="error">
+        <label>Error: Invalid info</label>
+    </div>
+
+    <button class="">Submit</button>
+-->

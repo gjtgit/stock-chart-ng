@@ -1,0 +1,39 @@
+
+<app-admin></app-admin>
+<div class="row">
+    <div class="col-md-6">
+        <h3>IPO list</h3>
+    </div>
+    <div class="col-md-2">
+        <a class="nav-link bg-warning" routerLink='/addIpo'  [routerLinkActive]="['bg-light']">Add IPO</a>
+    </div>   
+</div>
+
+<div class="row">
+<div class="col-md-12">
+    <table class="table table-bordered table-condensed table-hover">
+    <thead>
+        <tr class="bg-light">
+            <th>S.No</th>
+            <th>CompanyName</th>
+            <th>StockExchange</th>
+            <th>Price Per Share</th>
+            <th>Total Number Of Shares</th>
+            <th>OpenDate</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody class="col-md-12">
+        <tr *ngFor = "let item of ipoes; index as seqId" (click)="changeBg(seqId)">
+            <td>{{seqId+1}}</td>
+            <td>{{item.companyName}}</td>
+            <td>{{item.stockExchange}}</td>
+            <td>{{item.pricePerShare}}</td>
+            <td>{{item.totalNumberOfShares}}</td>
+            <td>{{item.openDateTime}}</td>
+            <td><input type="button" id="edit" class="btn btn-primary"  (click)="goDetail(item)" value="Edit"/></td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+</div>

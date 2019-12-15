@@ -1,0 +1,46 @@
+
+<app-admin></app-admin>
+<div class="row">
+    <div class="col-md-4">
+        <h3>Company list</h3>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <label class="form-control col-md-5 bg-light text-primary">Seach by CompanyName:</label>
+            <div class="col-md-7">
+                <input type="text" #searchCompanyName name="searchCompanyName" class="form-control text-primary"
+                (input)="search(searchCompanyName.value)"
+                placeholder="Enter to search, empty for all."
+                />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <a class="nav-link bg-warning" routerLink='/addCompany'  [routerLinkActive]="['bg-light']">Add company</a>
+    </div>   
+</div>
+
+<div class="row">
+<div class="col-md-12">
+    <table class="table table-bordered table-condensed table-hover">
+    <thead>
+        <tr class="bg-light">
+            <th>S.No</th>
+            <th>CompanyName</th>
+            <th>StockExchange</th>
+            <th>Brief</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody class="col-md-12">
+        <tr *ngFor = "let item of companies; index as seqId" (click)="changeBg(seqId)">
+            <td>{{seqId+1}}</td>
+            <td>{{item.companyName}}</td>
+            <td>{{item.listedExchanges}}</td>
+            <td>{{item.brief}}</td>
+            <td><input type="button" id="edit" class="btn btn-primary"  (click)="goDetail(item)" value="Edit"/></td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+</div>

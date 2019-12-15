@@ -1,0 +1,67 @@
+<app-admin></app-admin>
+<h3>Update IPO details</h3>
+<div *ngIf="warninfo.length>0" class="text-danger">
+    <label >{{warninfo}}</label>    
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="col-md-10">
+        <input type="hidden" #id [(ngModel)]="ipoData.id"
+            name="id"
+            class="form-control"
+            />
+        </div>
+
+        <label class="control-label">Company Name:</label>
+        <div class="col-md-10">
+            <select disabled [(ngModel)]="ipoData.companyId" #companyId class="form-control" name="companyId" style="width:200px;">
+                <option  *ngFor="let c of companies" [value]="c.id">{{c.companyName}}</option> 
+            </select>
+        </div>
+
+        <label class="control-label">Stock Exchagne:</label>
+        <div class="col-md-10">
+            <select [(ngModel)]="ipoData.stockExchange" class="form-control" #exchangeId name="exchangeId" style="width:200px;">
+                <option  *ngFor="let ex of exchanges" [value]="ex.stockExchange">{{ex.stockExchange}}</option> 
+            </select>
+        </div>
+<!--
+        <input type="text" #exchangeId [(ngModel)]="ipoData.exchangeId"
+            name="exchangeId"
+            class="form-control"
+            placeholder="Enter exchangeId"
+            /> --> 
+           
+        <label class="control-label">Price Per Share:</label>
+        <div class="col-md-10">
+        <input type="text" #pricePerShare [(ngModel)]="ipoData.pricePerShare"
+            name="pricePerShare"
+            class="form-control"
+            placeholder="Enter pricePerShare" 
+            />
+        </div>
+
+        <label class="control-label">Total number of Shares:</label>
+        <div class="col-md-10">
+        <input type="text" #totalNumberOfShares [(ngModel)]="ipoData.totalNumberOfShares"
+            name="totalNumberOfShares"
+            class="form-control"
+            placeholder="Enter total number of shares" 
+            />
+        </div>
+
+        <label class="control-label">OpenDateTime:</label>
+        <div class="col-md-10">
+        <input type="text" #openDateTime [(ngModel)]="ipoData.openDateTime"
+            name="openDateTime"
+            class="form-control"
+            placeholder="Enter open dateTime" 
+            />
+        </div>
+
+        <br>
+
+        <button class="btn btn-primary" (click)="saveData()">Submit</button>
+        
+    </div>
+</div>

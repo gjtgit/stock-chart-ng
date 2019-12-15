@@ -1,0 +1,85 @@
+<app-admin></app-admin>
+<h3>Edit company</h3>
+<div *ngIf="warninfo.length>0" class="text-danger">
+    <label >{{warninfo}}</label>    
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <div class="col-md-10">
+        <input type="hidden" #id [(ngModel)]="companyData.id"
+            name="id"
+            class="form-control"
+            />
+        </div>
+
+        <label class="control-label">Company Name:</label>
+        <div class="col-md-10">
+        <input type="text" #companyName [(ngModel)]="companyData.companyName"
+            name="companyName"
+            required
+            class="form-control"
+            placeholder="Enter companyName" 
+            />
+        </div>
+        
+        <label class="control-label">Brief:</label>
+        <div class="col-md-10">
+        <input type="text" #brief [(ngModel)]="companyData.brief"
+            name="brief"
+            class="form-control"
+            placeholder="Enter brief"
+            />
+        </div>
+           
+        <label class="control-label">Turnover:</label>
+        <div class="col-md-10">
+        <input type="text" #turnover [(ngModel)]="companyData.turnover"
+            name="turnover"
+            class="form-control"
+            placeholder="Enter turnover" 
+            />
+        </div>
+
+        <label class="control-label">CEO:</label>
+        <div class="col-md-10">
+        <input type="text" #ceo [(ngModel)]="companyData.ceo"
+            name="ceo"
+            class="form-control"
+            placeholder="Enter CEO" 
+            />
+        </div>
+
+        <label class="control-label">BoardMembers:</label>
+        <div class="col-md-10">
+        <input type="text" #boardMembers [(ngModel)]="companyData.boardMembers"
+            name="boardMembers"
+            class="form-control"
+            placeholder="Enter boardMembers" 
+            />
+        </div>
+
+        <label class="control-label">Sector:</label>
+        <div class="col-md-10">
+        <input type="text" #sectorId [(ngModel)]="companyData.sectorId"
+            name="sectorId"
+            class="form-control"
+            placeholder="Enter sector" 
+            />
+        </div>
+
+        <label class="control-label">StockCode:</label>
+        <div class="col-md-10">
+        <input type="text" #stockCodeInExchange [(ngModel)]="companyData.stockCodeInExchange"
+            name="stockCodeInExchange"
+            class="form-control"
+            placeholder="Enter stockCode" 
+            />
+        </div>
+
+        <br>
+
+        <button class="btn btn-primary" (click)="saveData()">Submit</button>
+        
+    </div>
+</div>

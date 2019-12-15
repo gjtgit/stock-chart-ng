@@ -1,0 +1,27 @@
+<!--
+    <button (click)="test()" >Test</button>
+    <button (click)="test2()" >Test2</button>
+    <button (click)="test3()" >Test3</button>
+    <button (click)="getLoginUser()" >GetLoginUser</button>
+-->
+
+<nav class="navbar navbar-expand-sm bg-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" routerLink='/importData' [routerLinkActive]="['bg-light']">Import Data</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink='/manageCompany'  [routerLinkActive]="['bg-light']">Manage Company</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink='/manageExchange'  [routerLinkActive]="['bg-light']">Manage Exchange</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink='/manageIpo'  [routerLinkActive]="['bg-light']">Update IPO</a>
+        </li>  
+        </ul>
+</nav>
+
+<router-outlet></router-outlet>
+
+    

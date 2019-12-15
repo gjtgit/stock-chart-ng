@@ -1,0 +1,144 @@
+<app-user></app-user>
+<h3>Comparison Charts - company/sector</h3>
+<div *ngIf="warninfo.length>0" class="text-danger">
+    <label >{{warninfo}}</label>    
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-md-5">
+        <label class="control-label">Select Company/Sector </label>
+        <div class="col-md-12">
+            <select #compareType name="compareType" [(ngModel)]="selCompareType1" class="form-control" style="width:200px;">
+                <option value="Company">Company</option> 
+                <option value="Sector">Sector</option> 
+            </select>
+        </div>
+
+        <label class="control-label">Stock Exchagne</label>
+        <div class="col-md-12">
+            <select class="form-control" #exchangeId name="exchangeId" style="width:200px;"
+            [(ngModel)]="exId"> 
+               <option  *ngFor="let ex of exchanges" [value]="ex.stockExchange">{{ex.stockExchange}}</option> 
+            </select>
+        </div>
+
+        <div *ngIf="selCompareType1 === 'Company';else sectorDropdown">
+            <label class="control-label">Company Name:</label>
+            <div class="col-md-12">
+                <select #companyId  class="form-control" name="companyId" style="width:200px;"
+                [(ngModel)]="companyId1"> 
+                    <option  *ngFor="let c of companies" [value]="c.id">{{c.companyName}}</option> 
+                </select>
+            </div>
+        </div>
+        <ng-template #sectorDropdown>
+            <label class="control-label">Sector:</label>
+            <div class="col-md-12">
+                <select #sectorId class="form-control" name="sectorId" style="width:200px;"
+                [(ngModel)]="sectorId1"> 
+                    <option  *ngFor="let s of sectors" [value]="s.id">{{s.sectorName}}</option> 
+                </select>
+            </div>
+        </ng-template>
+
+        <label class="control-label">From Period</label>
+        <div class="col-md-12">
+        <input type="date" #fromDate  [(ngModel)]="fromDatetime"
+            name="fromDate"
+            class="form-control"
+            placeholder="Enter from"
+            />
+        </div>
+        
+        <label class="control-label">To Period</label>
+        <div class="col-md-12">
+        <input type="date" #toDate [(ngModel)]="toDatetime"  
+            name="toDate"
+            class="form-control"
+            placeholder="Enter to"
+            />
+        </div>
+    </div>
+    
+    <div class="col-md-2">
+        <button class="btn btn-primary" (click)="addOneMore()">Add one more</button>
+        <br><br>
+        <button class="btn btn-primary" (click)="removeOne()">Remove one</button>
+        <br><br>
+        <button class="btn btn-primary" (click)="generateMap()">Generate Map</button>
+        <br><br>
+        <button class="btn btn-success" (click)="exportToExcel1()">ExportToExcel-chart1</button>
+        <br><br>
+        <div *ngIf="isAddOneMore === true">
+            <button class="btn btn-success" (click)="exportToExcel2()">ExportToExcel-chart2</button>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+
+        <div *ngIf="isAddOneMore === true" class="text-danger">
+            <label class="control-label">Select Company/Sector </label>
+            <div class="col-md-12">
+                <select #compareType name="compareType" [(ngModel)]="selCompareType2" class="form-control" style="width:200px;">
+                    <option value="Company">Company</option> 
+                    <option value="Sector">Sector</option> 
+                </select>
+            </div>
+            
+            <div *ngIf="selCompareType2 === 'Company';else sectorDropdown">
+                <label class="control-label">Company Name:</label>
+                <div class="col-md-12">
+                    <select #companyId  class="form-control" name="companyId" style="width:200px;"
+                    [(ngModel)]="companyId2"> 
+                        <option  *ngFor="let c of companies" [value]="c.id">{{c.companyName}}</option> 
+                    </select>
+                </div>
+            </div>
+            <ng-template #sectorDropdown>
+                <label class="control-label">Sector:</label>
+                <div class="col-md-12">
+                    <select #sectorId class="form-control" name="sectorId" style="width:200px;"
+                    [(ngModel)]="sectorId2"> 
+                        <option  *ngFor="let s of sectors" [value]="s.id">{{s.sectorName}}</option> 
+                    </select>
+                </div>
+            </ng-template>
+        </div>
+            
+        <br>
+        
+    </div>
+</div>
+<br>
+<div class="row">
+    <select [(ngModel)]="chartType" class="form-control" style="width:200px;">
+        <option value="Column2D">Column 2D</option> 
+        <option value="Line">Line</option> 
+        <option value="Pie2D">Pie 2D</option>
+        <option value="Bar2D">Bar 2D</option>
+    </select>
+    &nbsp;&nbsp;
+    <select [(ngModel)]="showInOne" class="form-control" style="width:200px;">
+        <option value="y">Show In One</option> 
+        <option value="n">Show In Two</option> 
+    </select>
+</div>
+<div class="row col-md-12">
+    <fusioncharts
+        [width]="chartW"
+        [height]="chartH"
+        [type]= "chartType"
+        dataFormat="JSON"
+        [dataSource]="dataSource1"
+    ></fusioncharts>
+    <div *ngIf="isAddOneMore === true">
+        <fusioncharts
+            [width]="chartW"
+            [height]="chartH"
+            [type]= "chartType"
+            dataFormat="JSON"
+            [dataSource]="dataSource2"
+        ></fusioncharts>
+    </div> 
+</div>

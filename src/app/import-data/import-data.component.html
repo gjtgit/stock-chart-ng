@@ -1,0 +1,59 @@
+<app-admin></app-admin>
+<h3>Upload stock price excel</h3>
+<div *ngIf="warninfo.length>0" class="text-danger">
+    <label>{{warninfo}}</label>    
+</div>
+
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <label class="control-label">Select Excel file to be uploaded </label>
+        <div class="col-md-12">
+            <input id="file" #file type="file" (change)="selectedFileOnChanged($event)" 
+            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
+            class="bg-warning" />  
+        </div>
+        <br>
+
+        <input class="btn btn-primary" type="button" value="Upload" (click)="upload(file)" 
+        [disabled]="btnUploadIsDisabled"/>Upload will be enabled only after select a file.
+        <hr>
+        <a href="assets/excel/sample_stock_data.xlsx">Download Sample excel</a>
+    </div>
+    <div class="col-md-6">
+
+        <table class="table-bordered" *ngFor = "let item of summary">
+            <tbody>
+                <tr><td class="col-md-6">company Id : </td><td>{{item.companyId}}</td></tr>
+                <tr><td class="col-md-6">company Name : </td><td>{{item.companyName}}</td></tr>
+                <tr><td class="col-md-6">stock Exchange : </td><td>{{item.stockExchange}}</td></tr>
+                <tr><td class="col-md-6">number Of Records : </td><td>{{item.numberOfRecords}}</td></tr>
+                <tr><td class="col-md-6">from Date : </td><td>{{item.fromDate}}</td></tr>
+                <tr><td class="col-md-6">to Date : </td><td>{{item.toDate}}</td></tr>
+            </tbody>
+        </table>
+
+</div>
+
+<!-- 
+<div id="upload" class="row">
+    <div class="col-md-10">
+        <label class="control-label">Select Excel file to be uploaded </label>
+        <div class="col-md-6">
+            <input type="text" [value]="selectFileName" class="form-control" readonly="true"/>
+        </div>
+        <br>
+        
+        <input class="btn btn-primary" type="button" value="Select..." (click)="selectFile()"/>
+        &nbsp; &nbsp;
+        <input class="btn btn-primary" type="button" value="Upload" (click)="uploadFile()" 
+        [disabled]="btnUploadIsDisabled"/>
+       
+    </div>
+</div>
+    
+<input type="file" id="file" accept=".xls,.xlsx" ng2FileSelect [uploader]="uploader"
+    style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;"
+    (change)="selectedFileOnChanged($event)" 
+/>
+-->

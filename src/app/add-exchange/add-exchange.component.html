@@ -1,0 +1,49 @@
+<app-admin></app-admin>
+<h3>Add stock exchange</h3>
+<div *ngIf="warninfo.length>0" class="text-danger">
+    <label >{{warninfo}}</label>    
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <label class="control-label">stockExchange:</label>
+        <div class="col-md-10">
+        <input type="text" #stockExchange [(ngModel)]="exchangeData.stockExchange"
+            name="stockExchange"
+            required
+            class="form-control"
+            placeholder="Enter stockExchange" 
+            />
+        </div>
+        
+        <label class="control-label">Brief:</label>
+        <div class="col-md-10">
+        <input type="text" #brief [(ngModel)]="exchangeData.brief"
+            name="brief"
+            class="form-control"
+            placeholder="Enter brief"
+            />
+        </div>
+           
+        <label class="control-label">Contact Address:</label>
+        <div class="col-md-10">
+        <input type="text" #contectAddress [(ngModel)]="exchangeData.contactAddress"
+            name="contactAddress"
+            class="form-control"
+            placeholder="Enter contactAddress" 
+            />
+        </div>
+
+        <label class="control-label">Remarks:</label>
+        <div class="col-md-10">
+        <input type="text" #remarks [(ngModel)]="exchangeData.remarks"
+            name="remarks"
+            class="form-control"
+            placeholder="Enter remarks" 
+            />
+        </div>
+        <br>
+
+        <button class="btn btn-primary" (click)="add()">Submit</button>
+        
+    </div>
+</div>

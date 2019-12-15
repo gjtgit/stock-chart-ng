@@ -1,0 +1,39 @@
+<app-admin></app-admin>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Stock exchange list</h3>
+    </div>
+    <div class="col-md-2">
+        <a class="nav-link bg-warning" routerLink='/addExchange'  [routerLinkActive]="['bg-light']">Add exchange</a>
+    </div>   
+</div>
+
+<div class="row">
+<div class="col-md-12">
+    <table class="table table-bordered table-condensed table-hover">
+    <thead>
+        <tr class="bg-light">
+            <th>S.No</th>
+            <th>StockExchange</th>
+            <th>Brief</th>
+            <th>ContectAddress</th>
+            <th>Remarks</th>
+        </tr>
+    </thead>
+    <tbody class="col-md-12">
+        <tr *ngFor = "let item of exchanges; index as seqId" (click)="changeBg(seqId)">
+            <td>{{seqId+1}}</td>
+            <td>{{item.stockExchange}}</td>
+            <td>{{item.brief}}</td>
+            <td>{{item.contectAddress}}</td>
+            <td>{{item.remarks}}</td>
+            <!--
+                <td><input type="button" id="edit" class="btn btn-primary"  (click)="update(item, item_url.value)" value="Edit"/></td>
+                <td><input type="button" id="delete" class="btn btn-danger" (click)="delete(item)" value="Delete"/></td>
+            -->
+                
+        </tr>
+    </tbody>
+    </table>
+</div>
+</div>

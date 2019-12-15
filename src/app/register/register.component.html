@@ -1,0 +1,63 @@
+<h1>Signup</h1>
+<div class="text-danger">
+    <label>{{warninfo}}</label>    
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <label class="col-md-2 control-label">Username:</label>
+        <div class="col-md-10">
+        <input type="text" #username [(ngModel)]="userData.username"
+            name="username"
+            required
+            class="form-control"
+            placeholder="Enter username" 
+            />
+        </div>
+        
+        <label class="col-md-2 control-label">Password:</label>
+        <div class="col-md-10">
+        <input type="password" #password [(ngModel)]="userData.password"
+            name="url"
+            required
+            class="form-control"
+            placeholder="Enter password"
+            />
+        </div>
+           
+        <label class="col-md-2 control-label">Email:</label>
+        <div class="col-md-10">
+        <input type="email" #email [(ngModel)]="userData.email"
+            name="email"
+            required
+            class="form-control"
+            placeholder="Enter Email" 
+            />
+        </div>
+
+        <label class="col-md-2 control-label">Mobile:</label>
+        <div class="col-md-10">
+        <input type="text" #mobile [(ngModel)]="userData.mobile"
+            name="mobile"
+            class="form-control"
+            placeholder="Enter mobile" 
+            />
+        </div>
+        <br>
+
+        <button class="btn btn-primary" (click)="register()">Submit</button>
+        
+    </div>
+
+    <div class="col-md-6">
+        <label class="col-md-2 control-label">Activate Code:</label>
+        <div class="col-md-10">
+        <input type="text" #mobile [(ngModel)]="activateCode"
+            class="form-control"
+            placeholder="Enter activateCode" 
+            />
+        </div>
+        <br>
+        <button class="btn btn-primary" (click)="activateUser()">Activate User</button>
+    </div>
+</div>

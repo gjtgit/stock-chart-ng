@@ -1,0 +1,73 @@
+<app-admin *ngIf="userData.userType==='admin'">
+</app-admin>    
+<app-user *ngIf="userData.userType==='user'">
+</app-user>
+
+<h3>Update user info</h3>
+<div *ngIf="warninfo.length>0" class="text-danger">
+    <label >{{warninfo}}</label>    
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <div class="col-md-10">
+        <input type="hidden" #id [(ngModel)]="userData.id"
+            name="id"
+            class="form-control"
+            />
+        </div>
+
+        <label class="col-md-2 control-label">Username:</label>
+        <div class="col-md-10">
+        <input disabled type="text" #username [(ngModel)]="userData.username"
+            name="username"
+            required
+            class="form-control"
+            />
+        </div>
+        
+        <label class="col-md-2 control-label">Password:</label>
+        <div class="col-md-10">
+        <input type="password" #password [(ngModel)]="userData.password"
+            name="url"
+            required
+            class="form-control"
+            placeholder="Enter password"
+            />
+        </div>
+
+        <label class="col-md-2 control-label">Password2:</label>    
+        <div class="col-md-10">
+        <input type="password" #password2 [(ngModel)]="userData.password2"
+            name="url"
+            required
+            class="form-control"
+            placeholder="Re-enter password"
+            />
+        </div>
+            
+        <label class="col-md-2 control-label">Email:</label>
+        <div class="col-md-10">
+        <input type="email" #email [(ngModel)]="userData.email"
+            name="email"
+            required
+            class="form-control"
+            placeholder="Enter Email" 
+            />
+        </div>
+
+        <label class="col-md-2 control-label">Mobile:</label>
+        <div class="col-md-10">
+        <input type="text" #mobile [(ngModel)]="userData.mobile"
+            name="mobile"
+            class="form-control"
+            placeholder="Enter mobile" 
+            />
+        </div>
+        <br>
+
+        <button class="btn btn-primary" (click)="save()">Submit</button>
+        
+    </div>
+</div>
+
