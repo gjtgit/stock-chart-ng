@@ -4,7 +4,7 @@ export class IpoData{
     exchangeId:string;
     pricePerShare:number;
     totalNumberOfShares:number;
-    openDateTime:Date;
+    openDateTime:string;
     companyName:string;
     stockExchange:string;
 }

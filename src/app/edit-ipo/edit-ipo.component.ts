@@ -53,6 +53,7 @@ export class EditIpoComponent implements OnInit {
   }
 
   saveData(ipoData:IpoData){
+    this.ipoData.openDateTime += " 09:00:00";
     if(this.isAdd){
       this.companyService.addIpo(this.ipoData).subscribe(Ipo => {
         this.ipoData = Ipo;
